@@ -3,7 +3,7 @@ const mainRouter=require("./routers/mainRouter");
 const app=express();
 app.use(express.json());
 require("dotenv").config();
-app.use("/app/v1",mainRouter);
+app.use("/api/v1",mainRouter);
 const port=3000||process.env.PORT;
 
 app.get("/",(req,res)=>{
