@@ -1,7 +1,7 @@
 const express=require("express");
 const calculateBilling = require("../utils/billing");
 const router=express.Router();
-
+const pool=require("../db/db");
 router.get("/users/:id/current-usage",async(req,res)=>{
 try {
     const userId=req.params.id;
@@ -48,7 +48,7 @@ router.get("/users/:id/billing-summary",async(req,res)=>{
 
     } catch (error) {
         console.log(error);
-        res.status(500),json({
+        res.status(500).json({
             msg:"Internal Server Error"
         })
     }
